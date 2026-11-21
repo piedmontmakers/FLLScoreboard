@@ -1,4 +1,4 @@
-# FLL Scrolling Scoreboard - Unearthed
+# FLL Scrolling Scoreboard - BIOGLOW
 
 A React-based scrolling scoreboard application for FIRST LEGO League competitions, featuring automatic scrolling, live Google Sheets integration, and team rankings based on highest individual match scores.
 
@@ -9,10 +9,10 @@ A React-based scrolling scoreboard application for FIRST LEGO League competition
 - **Error resilience**: Caches data and shows errors in footer when connection fails
 - **Auto-scrolling display**: Infinite scroll that smoothly loops through all teams
 - **Dynamic ranking**: Teams sorted by their highest individual match score
-- **Score highlighting**: Automatically highlights each team's best score in orange
+- **Score highlighting**: Automatically highlights each team's best score in BIOGLOW yellow
 - **Optional QR codes**: Display up to two QR codes in the header (configurable via environment variables)
 - **Responsive design**: Built with Tailwind CSS for a clean, modern look
-- **Orange theme**: Matching the Unearthed season branding
+- **BIOGLOW theme**: Colors and logo from the 2026-2027 BIOGLOW season style guide
 
 ## Setup
 
@@ -101,7 +101,7 @@ In `src/components/Scoreboard.tsx`, modify the `scrollSpeed` constant (default: 
 
 ### Change Color Theme
 
-The app uses Tailwind's orange color palette. To change colors, edit the Tailwind classes in:
+The app uses the BIOGLOW season palette, defined as `bioglow-*` colors in `tailwind.config.js`. For a new season, update the palette there and swap the logo in `src/assets/`. The classes are used in:
 - `src/App.tsx` - Background gradient
 - `src/components/Scoreboard.tsx` - Header, table, and highlight colors
 
@@ -111,7 +111,7 @@ The app uses Tailwind's orange color palette. To change colors, edit the Tailwin
 claude-fll/
 ├── src/
 │   ├── assets/
-│   │   └── season-logo.webp      # Season logo
+│   │   └── bioglow-logo.png      # Season logo
 │   ├── components/
 │   │   └── Scoreboard.tsx        # Main scoreboard component
 │   ├── services/

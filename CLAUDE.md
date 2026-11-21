@@ -18,7 +18,7 @@ npm run preview  # Preview production build
 ## Architecture
 
 - **React 18 + TypeScript + Vite** - Single page application
-- **Tailwind CSS** - Styling with orange theme for Unearthed season branding
+- **Tailwind CSS** - Styling with the BIOGLOW season palette (`bioglow-*` colors in `tailwind.config.js`)
 - **Google Sheets CSV** - Live data source without API key requirement
 
 ### Key Components
@@ -47,4 +47,4 @@ Optional QR codes:
 
 - **Scroll speed**: `scrollSpeed` constant in `Scoreboard.tsx:60` (default 30px/sec)
 - **Refresh interval**: `setInterval` in `App.tsx:32` (default 60000ms)
-- **Color theme**: Tailwind orange classes throughout components
+- **Color theme**: `bioglow` palette in `tailwind.config.js`; season logo in `src/assets/`

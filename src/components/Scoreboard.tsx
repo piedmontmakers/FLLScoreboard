@@ -1,6 +1,6 @@
 import { useMemo, useRef, useEffect } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import seasonLogo from '../assets/season-logo.webp';
+import bioglowLogo from '../assets/bioglow-logo.png';
 
 interface Team {
   id: number;
@@ -141,12 +141,12 @@ export function Scoreboard({ teams, lastUpdate, error, onRefresh }: ScoreboardPr
   return (
     <div className="h-full flex flex-col px-4 py-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-6 px-8 rounded-t-lg shadow-lg flex-shrink-0 relative">
+      <div className="bg-bioglow-forest text-white py-6 px-8 rounded-t-lg shadow-lg flex-shrink-0 relative border-b-4 border-bioglow-leaf">
         {/* QR Code 1 (optional) - positioned on far left, hidden on mobile */}
         {showQRCode1 && (
           <div className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col items-center gap-1 bg-white p-2 rounded-lg">
             <QRCodeSVG value={qrCodeUrl1} size={128} />
-            {qrCodeLabel1 && <p className="text-sm text-gray-700 font-semibold">{qrCodeLabel1}</p>}
+            {qrCodeLabel1 && <p className="text-sm text-bioglow-forest font-semibold">{qrCodeLabel1}</p>}
           </div>
         )}
 
@@ -154,32 +154,32 @@ export function Scoreboard({ teams, lastUpdate, error, onRefresh }: ScoreboardPr
         {showQRCode2 && (
           <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-1 bg-white p-2 rounded-lg">
             <QRCodeSVG value={qrCodeUrl2} size={128} />
-            {qrCodeLabel2 && <p className="text-sm text-gray-700 font-semibold">{qrCodeLabel2}</p>}
+            {qrCodeLabel2 && <p className="text-sm text-bioglow-forest font-semibold">{qrCodeLabel2}</p>}
           </div>
         )}
 
-        {/* Season Logo - centered */}
+        {/* BIOGLOW season logo - centered */}
         <div className="flex justify-center">
           <img
-            src={seasonLogo}
-            alt="Unearthed Season Logo"
+            src={bioglowLogo}
+            alt="FIRST LEGO League BIOGLOW season logo"
             className="h-32 w-auto object-contain"
           />
         </div>
       </div>
 
       {/* Scoreboard Table */}
-      <div className="bg-orange-50 shadow-lg overflow-hidden flex-1 flex flex-col">
+      <div className="bg-bioglow-mist shadow-lg overflow-hidden flex-1 flex flex-col">
         <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-hide">
           <table className="w-full">
-            <thead className="bg-orange-200 sticky top-0 z-10">
+            <thead className="bg-bioglow-lime text-bioglow-ink sticky top-0 z-10">
               <tr>
-                <th className="px-2 py-3 text-center border-r-2 border-orange-300 w-16">Rank</th>
-                <th className="px-2 py-3 text-center border-r-2 border-orange-300 w-20">#</th>
-                <th className="px-4 py-3 text-left border-r-2 border-orange-300 w-1/2">Name</th>
-                <th className="px-2 py-3 text-center border-r-2 border-orange-300 w-16">P</th>
-                <th className="px-2 py-3 text-center border-r-2 border-orange-300 w-16">1</th>
-                <th className="px-2 py-3 text-center border-r-2 border-orange-300 w-16">2</th>
+                <th className="px-2 py-3 text-center border-r-2 border-bioglow-leaf/50 w-16">Rank</th>
+                <th className="px-2 py-3 text-center border-r-2 border-bioglow-leaf/50 w-20">#</th>
+                <th className="px-4 py-3 text-left border-r-2 border-bioglow-leaf/50 w-1/2">Name</th>
+                <th className="px-2 py-3 text-center border-r-2 border-bioglow-leaf/50 w-16">P</th>
+                <th className="px-2 py-3 text-center border-r-2 border-bioglow-leaf/50 w-16">1</th>
+                <th className="px-2 py-3 text-center border-r-2 border-bioglow-leaf/50 w-16">2</th>
                 <th className="px-2 py-3 text-center w-16">3</th>
               </tr>
             </thead>
@@ -190,37 +190,37 @@ export function Scoreboard({ teams, lastUpdate, error, onRefresh }: ScoreboardPr
                 return (
                   <tr
                     key={`${team.id}-${index}`}
-                    className={`border-b-2 border-orange-200 hover:bg-orange-100 transition-colors ${
-                      index % 2 === 0 ? 'bg-orange-50' : 'bg-white'
+                    className={`border-b-2 border-bioglow-lime hover:bg-bioglow-lime/40 transition-colors ${
+                      index % 2 === 0 ? 'bg-bioglow-mist' : 'bg-white'
                     }`}
                   >
-                    <td className="px-2 py-3 text-center border-r-2 border-orange-200">{displayRank}</td>
-                    <td className="px-2 py-3 text-center border-r-2 border-orange-200">
+                    <td className="px-2 py-3 text-center border-r-2 border-bioglow-lime">{displayRank}</td>
+                    <td className="px-2 py-3 text-center border-r-2 border-bioglow-lime">
                       {team.teamNumber}
                     </td>
-                    <td className="px-4 py-3 border-r-2 border-orange-200">
+                    <td className="px-4 py-3 border-r-2 border-bioglow-lime">
                       {team.name}
                     </td>
-                    <td className="px-2 py-3 text-center border-r-2 border-orange-200">
+                    <td className="px-2 py-3 text-center border-r-2 border-bioglow-lime">
                       {team.p ?? ''}
                     </td>
                     <td
-                      className={`px-2 py-3 text-center border-r-2 border-orange-200 ${
-                        team.match1 !== null && team.match1 === highestScore ? 'bg-orange-300 font-semibold' : ''
+                      className={`px-2 py-3 text-center border-r-2 border-bioglow-lime ${
+                        team.match1 !== null && team.match1 === highestScore ? 'bg-bioglow-glow font-bold' : ''
                       }`}
                     >
                       {team.match1 ?? ''}
                     </td>
                     <td
-                      className={`px-2 py-3 text-center border-r-2 border-orange-200 ${
-                        team.match2 !== null && team.match2 === highestScore ? 'bg-orange-300 font-semibold' : ''
+                      className={`px-2 py-3 text-center border-r-2 border-bioglow-lime ${
+                        team.match2 !== null && team.match2 === highestScore ? 'bg-bioglow-glow font-bold' : ''
                       }`}
                     >
                       {team.match2 ?? ''}
                     </td>
                     <td
                       className={`px-2 py-3 text-center ${
-                        team.match3 !== null && team.match3 === highestScore ? 'bg-orange-300 font-semibold' : ''
+                        team.match3 !== null && team.match3 === highestScore ? 'bg-bioglow-glow font-bold' : ''
                       }`}
                     >
                       {team.match3 ?? ''}
@@ -234,7 +234,7 @@ export function Scoreboard({ teams, lastUpdate, error, onRefresh }: ScoreboardPr
       </div>
 
       {/* Footer Stats */}
-      <div className="mt-4 bg-white rounded-lg shadow p-4 text-center text-gray-600 flex-shrink-0">
+      <div className="mt-4 bg-white rounded-lg shadow p-4 text-center text-bioglow-forest flex-shrink-0">
         <p>
           Total Teams: {teams.length} | Sorted by Highest Individual Match Score |
           {error ? (
@@ -249,7 +249,7 @@ export function Scoreboard({ teams, lastUpdate, error, onRefresh }: ScoreboardPr
                   {' | '}
                   <button
                     onClick={onRefresh}
-                    className="text-orange-600 hover:text-orange-700 underline font-semibold"
+                    className="text-bioglow-leaf hover:text-bioglow-forest underline font-semibold"
                   >
                     Refresh
                   </button>
